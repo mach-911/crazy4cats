@@ -1,0 +1,17 @@
+<div class="banner">
+    <img class="img-fluid rounded" src="<%= @publication.banner %>" alt="banner">
+</div>
+
+<%= render @publication %>
+
+<div>
+<%= render partial: 'reactions/counter', locals: { publication: @publication } %>
+ <% if user_signed_in? %>
+  <%= render 'reactions/reaction' %>
+  <% if @publication.user == current_user %>
+    <%= link_to "Edit this publication", edit_publication_path(@publication) %> |
+    <%= button_to "Destroy this publication", @publication, method: :delete %>
+  <% end %>
+ <% end %>
+  <%= link_to "Back to publications", publications_path %>
+</div>

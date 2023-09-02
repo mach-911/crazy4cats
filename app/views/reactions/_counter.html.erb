@@ -1,0 +1,9 @@
+<div class="container">
+    <ul>
+    <% Reaction.kinds.each do |kind| %>
+        <li>
+            <%= @publication.reactions.where(kind: kind).count %> - <%= kind %>
+        </li>    
+    <% end %>
+    </ul>
+</div>

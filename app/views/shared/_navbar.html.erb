@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-light bg-gradient">
+  <div class="container">
+    <%= link_to("Crazt4Cats", root_path, class: 'navbar-brand') %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <%= link_to("Publicaciones", publications_url, class: 'nav-link') %>
+          <% if user_signed_in? %>
+          <div class="nav-link">
+            <%=  "Hola 👋 #{current_user.email}"  %>
+          </div>
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, class: 'nav-link', 'data-turbo-method': :delete %>
+          <% else %>
+            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link'%>
+            <hr class="dropdown-divider">
+            <%= link_to 'Registro', new_user_registration_path, class: 'nav-link'%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

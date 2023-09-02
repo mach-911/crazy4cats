@@ -1,0 +1,7 @@
+<div class="container">
+	<div class="d-flex">
+		<% Reaction.kinds.each do |kind| %>
+		  <%= button_to "#{kind}", user_reaction_path(publication_id: @publication.id, kind: kind), method: :post, class: "btn btn-outline-primary me-3" %>
+		<% end %>
+	</div>
+</div>

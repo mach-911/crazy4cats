@@ -1,0 +1,15 @@
+<div id="<%= dom_id publication %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= publication.title %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= publication.content %>
+  </p>
+  <div>
+    <small>Por <strong><%= publication.user.email %></strong></small>
+  </div>
+</div>
